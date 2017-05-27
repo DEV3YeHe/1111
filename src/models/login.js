@@ -4,7 +4,7 @@ import { routerRedux } from 'dva/router'
 export default {
   namespace: 'login',
   state: {
-  	show: true,
+  	show: false,
     loginLoading: false,
   },
 
@@ -12,31 +12,45 @@ export default {
   	load(state){
   		return { ...state, show: true }
   	},
+
+    loadover(state){
+      return { ...state, show: false }
+    },
     
     showLoginLoading(state){
       return { ...state,loginLoading: true }
     },
 
     hideLoginLoading(state){
-      return { ...state,loginLoading: true }
+      return { ...state,loginLoading: false }
     },
     
   },
 
   effects: {
-    *begin({payload,}, { put, call }){
-      yield put({ type: 'showLoginLoading' })
-      const data = yield call(login, payload)
-      // yield put({ type: 'hideLoginLoading' })
-      yield setTimeout("jump()","3000");
+    *begin({payload: values}, { put, call }){
 
-      const jump = ()=>{
+      
+      yield put({ type: 'showLoginLoading' })
+
+      
+      const data = yield call(login, values)
+      // console.log('数据到达了 模型login里')
+      // console.log(values)
+      yield put({ type: 'hideLoginLoading' })
+      yield put({ type: 'loadover' })
+
+      // setTimeout("console.log('345')","3000");
+
+      // const jump = (data)=>{
         if (data) {
-          put(routerRedux.push('/dashboard'))
+          
+          yield put(routerRedux.push('/dashboard'))
+          
         } else {
           throw data
         }
-      }
+      // }
       
     }
   },

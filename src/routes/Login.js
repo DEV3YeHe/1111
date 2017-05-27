@@ -1,17 +1,42 @@
 import React from 'react';
 import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 import styles from './Login.css';
-
+import PropTypes from 'prop-types';
 import QueueAnim from 'rc-queue-anim';
 
-import { Input, Button,  } from 'antd';
+import { Input, Button, Form, Spin } from 'antd';
 
 import Particular from '../components/Particular';
 
+const FormItem = Form.Item
 
-function Login({show}) {
+const Login = ({
+	// login,				//取到模型
+	dispatch,
+	show,
+  	loginLoading,			//取到 dispatch 方法
+	form: {				//form 的方法
+    	getFieldDecorator,
+    	validateFields,
+    },
+}) => {
 
-	const loginShow = {show:true,};
+	// const { show, loginLoading } = login    //【好像是】在下面 mapStateToProps 里取值~
+
+	function handleOk () {
+    validateFields((errors, values) => {
+      if (errors) {
+        return
+      }
+      dispatch({ type: 'login/begin', payload: values });
+      // console.log('数据从路由组件传出')
+      // console.log({payload: values})
+    })
+  }
+
+
+	// const {show} = login;
 
   return (
     <div className={styles.normal}>
@@ -41,7 +66,7 @@ function Login({show}) {
             { opacity: [1, 0], translateY: [0, 90] },
             { opacity: [1, 0], translateY: [0, -90] }
           ]} delay={200} duration={750}>
-          {loginShow.show ? [
+          {show ? [
 
     	<div className={styles.login1} key="a">
 {/* 一半渐变 + 粒子 radialGradient rgba(120, 100, 160, 0.88)*/}
@@ -81,15 +106,38 @@ function Login({show}) {
 					</svg>
 				</div>
 				
-	    		<Input style={{marginTop:'30px'}} size="large" placeholder="Enter Username" />
-	    		<Input style={{marginTop:'14px'}} size="large" placeholder="Enter Password" />
-	    		<Button style={{marginTop:'14px',boxShadow:'0 0 20px rgba(90, 0, 10, 0.28)'}} size="large" type="primary">LOG IN</Button>
+				
+					<FormItem hasFeedback style={{marginTop:'26px'}} >
+					{getFieldDecorator('username', {
+            			rules: [
+              				{
+                				required: true,
+              				},
+            			],
+          			})(
+		    		<Input style={{marginTop:'0px'}} size="large" onPressEnter={handleOk} placeholder="Enter Username" />
+		    		)}</FormItem>
 
-	    		<hr style={{height:'1px',border:'none',borderTop:'1px dashed #eee',marginTop:'25px'}} />
-	    		<div className={styles.row}>
-	    			<p style={{marginTop:'15px',marginLeft:'20px',color:'#999'}}>Username: guest</p>
-	    			<p style={{marginTop:'15px',marginLeft:'25px',color:'#999'}}>Password: guest</p>
-	    		</div>
+					<FormItem hasFeedback>
+      				{getFieldDecorator('password', {
+        				rules: [
+          					{
+            					required: false,
+          					},
+        				],
+      				})(
+		    		<Input style={{marginTop:'0px'}} size="large" type="password" onPressEnter={handleOk} placeholder="Enter Password" />
+		    		)}</FormItem>
+
+		    		<Button style={{marginTop:'0px',boxShadow:'0 0 20px rgba(90, 0, 10, 0.28)'}} size="large" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
+				
+
+		    		<hr style={{height:'1px',border:'none',borderTop:'1px dashed #eee',marginTop:'25px'}} />
+		    		<div className={styles.row}>
+		    			<p style={{marginTop:'12px',marginLeft:'16px',color:'#eee'}}>Username: guest</p>
+		    			<p style={{marginTop:'12px',marginLeft:'25px',color:'#eee'}}>Password: guest</p>
+		    		</div>
+
 			</div>
     	</div>
     	]: null}
@@ -98,9 +146,18 @@ function Login({show}) {
   );
 }
 
-function mapStateToProps(state) {
-	const {show} = state.login;
-  return {show};
+Login.propTypes = {
+  form: PropTypes.object,
+  login: PropTypes.object,
+  dispatch: PropTypes.func,
 }
 
-export default connect(mapStateToProps)(Login);
+function mapStateToProps(state) {
+	const {show, loginLoading} = state.login;
+  return {
+  	show,
+  	loginLoading,
+  };
+}
+
+export default connect(mapStateToProps)(Form.create()(Login));
