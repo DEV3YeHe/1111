@@ -1,0 +1,25 @@
+{
+  "theme": {
+    "primary-color": "#F74AA4",
+    "border-radius-base": "20px",
+    "link-color": "#928CCA",
+    "font-size-base": "12px",
+    "line-height-base": "1.4"
+  },
+  "entry": "src/index.js",
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": true }]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": true }]
+      ]
+    }
+  }
+}
