@@ -11,7 +11,7 @@ function Starry(cx,ctx){
   this.lines = [];//线
 }
 Starry.prototype = {  
-  construct:function(){
+  construct:function(){                         //遍历出所有粒子，放进 this.dots
     var _this = this;
     for( var i = 0; i < this.len; i++ ){
         var dot = {          
@@ -20,7 +20,7 @@ Starry.prototype = {
           y : Math.random()*this.cx.height,
           r : i===0?0:Math.random()*5,          //半径（体积）
           v : 2,
-          ra : (Math.random()-.5)*2*Math.PI,
+          ra : (Math.random()-.5)*2*Math.PI,    //方向？
           c : Math.random()*10,
           cv : Math.random()+1,
         }
@@ -28,8 +28,12 @@ Starry.prototype = {
         this.dots.push(dot);
     }
     
-    this.dots.forEach(function(dot,m){  
-        _this.dots.forEach(function(_dot,n){
+    
+
+    this.dots.forEach(function(dot,m){           //函数嵌套时，内层的 this 会变化，
+    // console.log(this);                        //执行到内层，此时 this 是 循环时候产生的undefined对象，所以内层循环不会执行，
+    // console.log(_this);                       //执行到内层，此时 _this 是 Starry 本身（刚才存的var _this = this;），
+        _this.dots.forEach(function(_dot,n){     //_this 换成 this 后，线没了，好像snowBoll效果。。
             if( n < m ){
                 var line = {
                     from : dot,

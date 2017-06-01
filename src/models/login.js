@@ -1,5 +1,6 @@
 import { login } from '../services/login'
 import { routerRedux } from 'dva/router'
+import { delay } from 'redux-saga'
 
 export default {
   namespace: 'login',
@@ -24,7 +25,7 @@ export default {
     hideLoginLoading(state){
       return { ...state,loginLoading: false }
     },
-    
+
   },
 
   effects: {
@@ -37,14 +38,18 @@ export default {
       const data = yield call(login, values)
       // console.log('数据到达了 模型login里')
       // console.log(values)
-      yield put({ type: 'hideLoginLoading' })
-      yield put({ type: 'loadover' })
+      
+      
 
-      // setTimeout("console.log('345')","3000");
+      // yield  setTimeout("console.log('345')","3000");
 
       // const jump = (data)=>{
         if (data) {
-          
+          yield call(delay, 700)
+          yield put({ type: 'hideLoginLoading' })
+          yield call(delay, 800)
+          yield put({ type: 'loadover' })
+          yield call(delay, 2000)
           yield put(routerRedux.push('/dashboard'))
           
         } else {
