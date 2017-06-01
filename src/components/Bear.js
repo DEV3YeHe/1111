@@ -63,8 +63,8 @@ window.onmousemove = function(e){
   
   
   TweenMax.to('#snout',1,{
-    x:((mousePos.x/30) < snoutMinX) ? snoutMinX : mousePos.x/30,
-    y:((mousePos.y/40) < snoutMinY) ? snoutMinY : mousePos.y/40
+    x:mousePos.x/30,
+    y:((mousePos.y/60) < snoutMinY) ? snoutMinY : mousePos.y/60
   })  
 
   TweenMax.to('#nose',1,{
@@ -128,13 +128,14 @@ container.addEventListener('click', function(e){
 })
 blink();
 sniff();
-window.onmousemove()
+window.onmousemove({offsetX:300, offsetY:60 })
   }
 
   render() {
     return (
       <div className="bearContainer">
         <svg className="dogSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+          <circle id="rd" cx="300" cy="300" r="160" stroke="#2C374F" strokeWidth="16" />
           <defs>
             <clipPath id="mainMask">
               <circle id="bg" cx="300" cy="300" r="160" stroke="#2C374F" strokeWidth="16" fill="#F88A4F"/>
@@ -166,7 +167,6 @@ window.onmousemove()
             </g>
           </g>
 
-          <circle id="rd" cx="300" cy="300" r="160" stroke="#2C374F" strokeWidth="16" fill="none" />
         </svg>
       </div>
     )

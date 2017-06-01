@@ -46,12 +46,7 @@ const Login = ({
 		<div className={styles.bg}> 
 			<Particular />		
 		</div>
-{/* ↓ 底部版权声明 ↓ */}
-		<div>
-			<p style={{color:'rgba(0, 0, 0, 0.68)',marginTop:'50',position:'fixed',bottom:'25',width:'100%',textAlign:'center'}}>
-			@ 2017 David's Re-ment, hope U like here~!
-			<a href="http://www.houseside.cn" style={{marginLeft:'14',fontWeight:'blod'}}>&gt; Visite Home &lt;</a></p>
-		</div>
+
 {/* ↓ 中心窗口，以动画包裹 ↓ */}
 		<QueueAnim className={styles.normal} animConfig={[
             { opacity: [1, 0], translateY: [0, 90] },
@@ -59,64 +54,68 @@ const Login = ({
           ]} delay={160} duration={700}>
           {show ? [
 
-		<div className={styles.center} key='1'>
-	    	<div className={styles.winContainer}>
-	{/* 一半渐变 + 粒子 radialGradient rgba(120, 100, 160, 0.88)*/}
+		
+    	<div className={styles.winContainer} key='1'>
+{/* 一半渐变 + 粒子 radialGradient rgba(120, 100, 160, 0.88)*/}
 
-				<div className={styles.left1}  id='mouseRange'>
-					<Bear />
+			<div className={styles.left1}>
+				<Bear />
+			</div>
+
+{/* 另一半表单*/}
+			<div className={styles.right1}>
+				<div className={styles.row}>
+					<svg style = {{width: '50px',height: '50px',marginRight:'20px',marginLeft:'20px'}}>
+					  <use xlinkHref="#icon-Forme2" fill= "black"></use>
+					</svg>
+
+					<svg style = {{width: '120px',height: '50px'}}>
+					  <use xlinkHref="#icon-rement"></use>
+					</svg>
 				</div>
+				
+				
+					<FormItem hasFeedback style={{marginTop:'26px'}} >
+					{getFieldDecorator('username', {
+            			rules: [
+              				{
+                				required: true,
+              				},
+            			],
+          			})(
+		    		<Input style={{marginTop:'0px'}} size="large" onPressEnter={handleOk} placeholder="Enter Username" />
+		    		)}</FormItem>
 
-	{/* 另一半表单*/}
-				<div className={styles.right1}>
-					<div className={styles.row}>
-						<svg style = {{width: '50px',height: '50px',marginRight:'20px',marginLeft:'20px'}}>
-						  <use xlinkHref="#icon-Forme2" fill= "black"></use>
-						</svg>
+					<FormItem hasFeedback>
+      				{getFieldDecorator('password', {
+        				rules: [
+          					{
+            					required: false,
+          					},
+        				],
+      				})(
+		    		<Input style={{marginTop:'0px'}} size="large" type="password" onPressEnter={handleOk} placeholder="Enter Password" />
+		    		)}</FormItem>
 
-						<svg style = {{width: '120px',height: '50px'}}>
-						  <use xlinkHref="#icon-rement"></use>
-						</svg>
-					</div>
-					
-					
-						<FormItem hasFeedback style={{marginTop:'26px'}} >
-						{getFieldDecorator('username', {
-	            			rules: [
-	              				{
-	                				required: true,
-	              				},
-	            			],
-	          			})(
-			    		<Input style={{marginTop:'0px'}} size="large" onPressEnter={handleOk} placeholder="Enter Username" />
-			    		)}</FormItem>
+		    		<Button style={{marginTop:'0px',boxShadow:'0 0 20px rgba(90, 0, 10, 0.28)'}} size="large" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
+				
 
-						<FormItem hasFeedback>
-	      				{getFieldDecorator('password', {
-	        				rules: [
-	          					{
-	            					required: false,
-	          					},
-	        				],
-	      				})(
-			    		<Input style={{marginTop:'0px'}} size="large" type="password" onPressEnter={handleOk} placeholder="Enter Password" />
-			    		)}</FormItem>
+		    		<hr style={{height:'1px',border:'none',borderTop:'1px dashed #eee',marginTop:'25px'}} />
+		    		<div className={styles.row}>
+		    			<p style={{marginTop:'12px',marginLeft:'16px',color:'#eee'}}>Username: guest</p>
+		    			<p style={{marginTop:'12px',marginLeft:'25px',color:'#eee'}}>Password: guest</p>
+		    		</div>
 
-			    		<Button style={{marginTop:'0px',boxShadow:'0 0 20px rgba(90, 0, 10, 0.28)'}} size="large" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
-					
-
-			    		<hr style={{height:'1px',border:'none',borderTop:'1px dashed #eee',marginTop:'25px'}} />
-			    		<div className={styles.row}>
-			    			<p style={{marginTop:'12px',marginLeft:'16px',color:'#eee'}}>Username: guest</p>
-			    			<p style={{marginTop:'12px',marginLeft:'25px',color:'#eee'}}>Password: guest</p>
-			    		</div>
-
-				</div>
-	    	</div>
+			</div>
+    	
     	</div>
     	]: null}
         </QueueAnim>
-
+{/* ↓ 底部版权声明 ↓ */}
+		<div>
+			<p style={{color:'rgba(0, 0, 0, 0.68)',marginTop:'50',position:'fixed',bottom:'25',width:'100%',textAlign:'center'}}>
+			@ 2017 David's Re-ment, hope U like here~!<a href="http://www.houseside.cn" style={{marginLeft:'16', fontWeight:'bloder'}}>Visit Home</a></p>
+		</div>
     </div>
   );
 }
