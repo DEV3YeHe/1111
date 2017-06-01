@@ -1,12 +1,12 @@
 function Starry(cx,ctx){
   this.cx = cx;
   this.ctx = ctx;
-  this.len = 80;//粒子量
+  this.len = 10;//粒子量
   this.mousePos = [0, 0];
   this.easingFactor = 16;    //跟随滞后
-  this.backgroundColor = 'rgba(0,0,0,0)';
-  this.dotColor = '#fff';
-  this.lineColor = '#fff';
+  this.backgroundColor = '#F6F7FB';
+  this.dotColor = '#ECEFF6';                  //'#'+Math.floor(Math.random()*16777215).toString(16)     =>  随机色
+  this.lineColor = '#ECEFF6';
   this.dots = [];//点
   this.lines = [];//线
 }
@@ -18,8 +18,8 @@ Starry.prototype = {
           isMouse : i===0,
           x : Math.random()*this.cx.width,
           y : Math.random()*this.cx.height,
-          r : i===0?0:Math.random()*5,          //半径（体积）
-          v : 2,
+          r : i===0?0:26+Math.random()*150,          //半径（体积）
+          v : 10+Math.random()*20,                                //移动速度
           ra : (Math.random()-.5)*2*Math.PI,    //方向？
           c : Math.random()*10,
           cv : Math.random()+1,
@@ -86,7 +86,7 @@ Starry.prototype = {
   render:function(){
     var _this = this;
     this.ctx.clearRect(0,0,this.cx.width,this.cx.height);//清除
-    this.ctx.globalAlpha = 0.7;
+    this.ctx.globalAlpha = 1;
     this.ctx.fillStyle = this.backgroundColor;
     this.ctx.fillRect(0,0,this.cx.width,this.cx.height);
     this.ctx.fillStyle = this.dotColor;
@@ -98,11 +98,11 @@ Starry.prototype = {
     this.ctx.save();
     this.lines.forEach(function(line){
       var l = Math.sqrt(Math.pow((line.from.x - line.to.x), 2) + Math.pow((line.from.y - line.to.y), 2));  //普遍长度
-      var maxl = _this.cx.width / 4.5;   //最大长度
+      var maxl = _this.cx.width / 2;   //最大长度
       if( l > maxl) return;
       _this.ctx.strokeStyle = _this.lineColor;
-      _this.ctx.lineWidth = (1.0 - l / maxl) * 2;   //线条粗细
-      _this.ctx.globalAlpha = (1.0 - l / maxl)*.5;
+      _this.ctx.lineWidth = 0;   //线条粗细
+      _this.ctx.globalAlpha = 0;
       _this.ctx.beginPath();
       _this.ctx.moveTo(line.from.x,line.from.y);
       _this.ctx.lineTo(line.to.x,line.to.y);

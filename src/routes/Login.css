@@ -1,20 +1,32 @@
 
 .normal {
-
+	width: 100%;
+  	height: 100%;
+  	// background-color: white;
 }
-.login1 {
-	width: 640px;
-	height: 320px;
-	position: absolute;
-	border-radius:5px;
-	top:50%;
-	left:50%;
-	margin: -160px 0 0 -320px;
-	box-shadow: 0 0 60px rgba(20, 0, 160, 0.48);
+.center {
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+  	height: 100%;
+}
+
+.winContainer {
+	// width: 640px;
+	// height: 380px;
+	position: absolute;
+	// border-radius:3px;
+	// top:50%;
+	// left:50%;
+	// margin: -190px 0 0 -320px;
+	box-shadow: 0 0 20px rgba(100, 80, 60, 0.26);
+	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: flex-start;
 	overflow: hidden;
+	// background-color: white;
 }
 
 .login2 {
@@ -30,10 +42,10 @@
   // margin: auto;
 }
 .login3 {
-  width: 320px;
-  height: 320px;
+  width: 100%;
+  height: 100%;
   position: fixed;
-  z-index: 102;
+  z-index: 1;
   overflow: hidden;
   // right: 0;
   // top: 0;
@@ -42,25 +54,28 @@
   // margin: auto;
 }
 .left1 {
-	display: flex;
-	width: 320px;
-    height: 320px;
+	position: static;
+	box-shadow: 0 0 20px rgba(100, 80, 20, 0.12);
+	overflow: visible;
+	width: 260px;
+    height: 380px;
     overflow: hidden;
-	background-color: white;
+    background-color: #9B7D64;
 }
 .right1 {
+	position: static;
 	display: flex;
 	flex-direction: column;
 	padding-top: 30px;
 	padding-left: 35px;
 	padding-right: 35px;
-	width: 320px;
-    height: 320px;
+	width: 380px;
+    height: 380px;
     
     background-color: white;
 }
 .bg {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 }
@@ -72,4 +87,11 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+}
+
+#mouseRange {
+	position: static;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
 }

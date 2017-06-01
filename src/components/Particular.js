@@ -20,9 +20,9 @@ class Particular extends React.Component {
     // console.log(document.body.clientWidth)
     cx.onmousemove = function (e) {
     	
-    	St.mousePos[0] = e.clientX - (document.body.clientWidth*0.5-320);
+    	St.mousePos[0] = e.clientX;
 
-    	St.mousePos[1] = e.clientY - (document.body.clientHeight*0.5-160);
+    	St.mousePos[1] = e.clientY;
       // St.mousePos[0] = e.clientX - cx.offsetLeft - 160;
       // St.mousePos[1] = e.clientY - cx.offsetTop - 160;
     }
@@ -31,7 +31,7 @@ class Particular extends React.Component {
   render() {
     return (
       <div>
-            <canvas id='canvas' style={{width:'320', height:'320', position:'absolute'}}></canvas>
+            <canvas id='canvas' style={{width:'100%', height:'100%', position:'absolute'}}></canvas>
       </div>
     )
   }
