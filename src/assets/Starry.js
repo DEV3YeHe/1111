@@ -4,9 +4,9 @@ function Starry(cx,ctx){
   this.len = 10;//粒子量
   this.mousePos = [0, 0];
   this.easingFactor = 16;    //跟随滞后
-  this.backgroundColor = '#F6F7FB';
-  this.dotColor = '#ECEFF6';                  //'#'+Math.floor(Math.random()*16777215).toString(16)     =>  随机色
-  this.lineColor = '#ECEFF6';
+  this.backgroundColor = '#fff';
+  this.dotColor = '#FE9F7E';                  //'#'+Math.floor(Math.random()*16777215).toString(16)     =>  随机色
+  this.lineColor = '#F18A45';
   this.dots = [];//点
   this.lines = [];//线
 }
@@ -18,7 +18,7 @@ Starry.prototype = {
           isMouse : i===0,
           x : Math.random()*this.cx.width,
           y : Math.random()*this.cx.height,
-          r : i===0?0:26+Math.random()*150,          //半径（体积）
+          r : i===0?0:22+Math.random()*130,          //半径（体积）
           v : 10+Math.random()*20,                                //移动速度
           ra : (Math.random()-.5)*2*Math.PI,    //方向？
           c : Math.random()*10,
@@ -30,19 +30,19 @@ Starry.prototype = {
     
     
 
-    this.dots.forEach(function(dot,m){           //函数嵌套时，内层的 this 会变化，
-    // console.log(this);                        //执行到内层，此时 this 是 循环时候产生的undefined对象，所以内层循环不会执行，
-    // console.log(_this);                       //执行到内层，此时 _this 是 Starry 本身（刚才存的var _this = this;），
-        _this.dots.forEach(function(_dot,n){     //_this 换成 this 后，线没了，好像snowBoll效果。。
-            if( n < m ){
-                var line = {
-                    from : dot,
-                    to : _dot
-                }
-                _this.lines.push(line);
-            } 
-        })
-    })  
+    // this.dots.forEach(function(dot,m){           //函数嵌套时，内层的 this 会变化，
+    // // console.log(this);                        //执行到内层，此时 this 是 循环时候产生的undefined对象，所以内层循环不会执行，
+    // // console.log(_this);                       //执行到内层，此时 _this 是 Starry 本身（刚才存的var _this = this;），
+    //     _this.dots.forEach(function(_dot,n){     //_this 换成 this 后，线没了，好像snowBoll效果。。
+    //         if( n < m ){
+    //             var line = {
+    //                 from : dot,
+    //                 to : _dot
+    //             }
+    //             _this.lines.push(line);
+    //         } 
+    //     })
+    // })  
   },
   step:function(){
     var _this = this;
@@ -86,7 +86,7 @@ Starry.prototype = {
   render:function(){
     var _this = this;
     this.ctx.clearRect(0,0,this.cx.width,this.cx.height);//清除
-    this.ctx.globalAlpha = 1;
+    this.ctx.globalAlpha = 0.2;
     this.ctx.fillStyle = this.backgroundColor;
     this.ctx.fillRect(0,0,this.cx.width,this.cx.height);
     this.ctx.fillStyle = this.dotColor;
@@ -98,11 +98,11 @@ Starry.prototype = {
     this.ctx.save();
     this.lines.forEach(function(line){
       var l = Math.sqrt(Math.pow((line.from.x - line.to.x), 2) + Math.pow((line.from.y - line.to.y), 2));  //普遍长度
-      var maxl = _this.cx.width / 2;   //最大长度
+      var maxl = _this.cx.width / 8;   //最大长度
       if( l > maxl) return;
       _this.ctx.strokeStyle = _this.lineColor;
       _this.ctx.lineWidth = 0;   //线条粗细
-      _this.ctx.globalAlpha = 0;
+      _this.ctx.globalAlpha = 0.2;
       _this.ctx.beginPath();
       _this.ctx.moveTo(line.from.x,line.from.y);
       _this.ctx.lineTo(line.to.x,line.to.y);

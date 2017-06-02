@@ -1,0 +1,26 @@
+.row{
+	// display: -webkit-flex;/* Safari */
+	display: flex;
+	-webkit-flex-direction: row;/* Safari */
+	flex-direction: row;
+	width: 380px;
+	height: 120px;
+}
+
+.bearSit {
+	position:relative;
+	display:inline-block;
+	left:35px;
+	top:20px;
+	width: 80px;
+	height: 80px;
+}
+
+.boboSit {
+	position:relative;
+	display:inline-block;
+	left:43px;
+	top:32px;
+	width: 180px;
+	height: 50px;
+}

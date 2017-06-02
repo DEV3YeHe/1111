@@ -3,3 +3,9 @@ html, body, :global(#root) {
   height: 100%;
 }
 
+p {
+	// font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+ //             "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+ //             SimSun, sans-serif;
+     font-family:'BauhausITCbyBT-b0c215bc419424';
+}

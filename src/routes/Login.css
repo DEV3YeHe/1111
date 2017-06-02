@@ -61,23 +61,32 @@
   // margin: auto;
 }
 .left1 {
-	position: static;
-	box-shadow: 0 0 20px rgba(100, 80, 20, 0.12);
-	overflow: visible;
+	// position: static;
+	// box-shadow: 0 0 20px rgba(100, 80, 20, 0.12);
 	width: 260px;
     height: 380px;
-    overflow: hidden;
-    background-color: #9B7D64;
+    overflow: visible;
+    background-color: #F77D55;
+ //    display: flex;
+ //    -webkit-flex-direction: column;
+	// flex-direction: column;
+	// flex-wrap: wrap;
+ //    -webkit-justify-content: center; 
+	// justify-content: center;
+	// -webkit-align-items: center;/* Safari */
+	// align-items: center;
+	// -webkit-align-items: space-between; /* Safari */
+ //  align-items: space-between;
 }
 .right1 {
-	position: static;
+	// position: static;
 	// display: -webkit-flex;/* Safari */
 	display: flex;
 	-webkit-flex-direction: column;/* Safari */
 	flex-direction: column;
-	padding-top: 30px;
-	padding-left: 35px;
-	padding-right: 35px;
+	// padding-top: 30px;
+	// padding-left: 35px;
+	// padding-right: 35px;
 	width: 380px;
     height: 380px;
     background-color: white;
@@ -108,3 +117,8 @@
 	height: 100%;
 	z-index: 100;
 }
+
+.bearTalk {
+
+}
+

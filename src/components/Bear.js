@@ -6,9 +6,8 @@ import {TweenMax} from "gsap";
 
 class Bear extends React.Component {
   componentDidMount() {
-    var xmlns = "http://www.w3.org/2000/svg",
-  xlinkns = "http://www.w3.org/1999/xlink",
-  select = function(s) {
+
+    let select = function(s) {
     return document.querySelector(s);
   },
   selectAll = function(s) {
@@ -16,7 +15,7 @@ class Bear extends React.Component {
   },
   container = select('.bearContainer'),
   // dogSVG = select('.dogSVG'),
-  dogSVG = select('#mouseRange'),
+  // dogSVG = select('#mouseRange'),
   // mouseRange = select('#root'),
   eyeSpinL = select('#eyeSpinL'),
   eyeSpinR = select('#eyeSpinR'),
@@ -52,11 +51,11 @@ window.onmousemove = function(e){
   // mousePos.x = ((stageWidth/2) - e.offsetX) * -1;   e.clientX
   // mousePos.y = ((stageHeight/2) - e.offsetY) * -1;
   
-  mousePos.x = ((document.body.clientWidth/2) - e.pageX) * -1 + 320;   
+  mousePos.x = ((document.body.clientWidth/2) - e.pageX) * -1 + 120;   
   mousePos.y = ((document.body.clientHeight/2) - e.pageY) * -1 - 160;
   
   TweenMax.to('#eyeGroup',1,{
-    x:((mousePos.x/20) > eyeMaxX) ? eyeMaxX : mousePos.x/20
+    x:((mousePos.x/20) > (eyeMaxX + 20)) ? (eyeMaxX + 20) : mousePos.x/20
   ,
     y:((mousePos.y/26) > eyeMaxY) ? eyeMaxY : mousePos.y/26
   })  
@@ -92,13 +91,11 @@ window.onmousemove = function(e){
 function blink(){
   
   TweenMax.to('.eye', 0.1,{
-    attr:{
-      ry:0
-    },
+    scaleY:0.2,
     repeat:1,
     yoyo:true,
     onComplete:blink,
-    delay:2 + Math.random()*5
+    delay:9 + Math.random()*9
   })
   
 }
@@ -133,40 +130,38 @@ window.onmousemove({offsetX:300, offsetY:60 })
 
   render() {
     return (
-      <div className="bearContainer">
-        <svg className="dogSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-          <circle id="rd" cx="300" cy="300" r="160" stroke="#2C374F" strokeWidth="16" />
+      <div className="bearContainer" styles={{width: '100%',height: '100%',position: 'absolute',overflow: 'hidden'}}>
+        <svg className="dogSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+          
           <defs>
             <clipPath id="mainMask">
-              <circle id="bg" cx="300" cy="300" r="160" stroke="#2C374F" strokeWidth="16" fill="#F88A4F"/>
+              <circle id="bg" cx="200" cy="200" r="160" fill="#F88A4F"/>
             </clipPath>
           </defs>
   
           <use xlinkHref="#bg"/>
         
           <g id="dogGroup">
-            <rect id="earL" x="200" y="200" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
-            <rect id="earR" x="345" y="200" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
-            <rect id="head" x="201" y="205" width="200" height="400" rx="86" ry="114" fill="#9B7D64"/>
-            <rect id="earLTOP" x="200" y="200" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
-            <rect id="earRTOP" x="345" y="200" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
-            <rect id="snout" x="239" y="294" width="121" height="84.98" rx="42" ry="42" fill="#F1F4E4"/>
+            <rect id="earL" x="100" y="100" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
+            <rect id="earR" x="245" y="100" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
+            <rect id="head" x="90" y="105" width="220" height="300" rx="96" ry="110" fill="#9B7D64"/>
+            <rect id="snout" x="139" y="194" width="121" height="84.98" rx="42" ry="42" fill="#F1F4E4"/>
 
             <g id="nose" >
-              <rect x="276" y="325" width="46" height="23" rx="11" ry="11" fill="#443F43"/>
-              <path id="noseShine" fill="none" stroke="#AAABAF" strokeWidth="4" strokeLinecap="round" d="M282.1,337.7L282.1,337.7c0-4.2,3.4-7.6,7.6-7.6h20.4c4.2,0,7.6,3.4,7.6,7.6l0,0"/>      
+              <rect x="176" y="225" width="46" height="23" rx="11" ry="11" fill="#443F43"/>
+              <path id="noseShine" fill="none" stroke="#AAABAF" strokeWidth="4" strokeLinecap="round" d="M182.1,237.7L182.1,237.7c0-4.2,3.4-7.6,7.6-7.6h20.4c4.2,0,7.6,3.4,7.6,7.6l0,0"/>      
             </g>
     
             <g id="eyeGroup" fill="#443F43">
               <g id="eyeSpinL">
-                <ellipse id="eyeL" className="eye" cx="270" cy="275" rx="7" ry="7" />
+                <ellipse id="eyeL" className="eye" cx="170" cy="175" rx="7" ry="7" />
               </g>
               <g id="eyeSpinR">
-                <ellipse id="eyeR" className="eye" cx="329" cy="275" rx="7" ry="7" />
+                <ellipse id="eyeR" className="eye" cx="229" cy="175" rx="7" ry="7" />
               </g>
             </g>
           </g>
-
+          <circle id="rd" cx="200" cy="200" r="200" stroke="#fff" strokeWidth="80" fill="none"/>
         </svg>
       </div>
     )
