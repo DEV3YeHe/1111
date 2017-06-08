@@ -10,9 +10,9 @@ class Bear extends React.Component {
     let select = function(s) {
     return document.querySelector(s);
   },
-  selectAll = function(s) {
-    return document.querySelectorAll(s);
-  },
+  // selectAll = function(s) {
+  //   return document.querySelectorAll(s);
+  // },
   container = select('.bearContainer'),
   // dogSVG = select('.dogSVG'),
   // dogSVG = select('#mouseRange'),
@@ -33,33 +33,33 @@ TweenMax.set([eyeSpinL,eyeSpinR], {
   transformOrigin:'65% 50%'
 })
 
-var tl = new TimelineMax();
-var eyeMaxX = 1;
-var eyeMaxY = 1;
-var browMaxX = 2;
-var browMaxY = 2;
-var browMaxRot = 0;
-var snoutMinX = 2;
-var snoutMinY = 2;
-var snoutMaxX = 12;
-var snoutMaxY = 12;
-var noseMaxX = 12;
-var noseMaxY = 12;
+// var tl = new TimelineMax();
+let eyeMaxX = 1;
+let eyeMaxY = 1;
+let browMaxX = 2;
+let browMaxY = 2;
+let browMaxRot = 0;
+let snoutMinX = 2;
+let snoutMinY = 2;
+let snoutMaxX = 12;
+let snoutMaxY = 12;
+let noseMaxX = 12;
+let noseMaxY = 12;
 
+//鼠标轨迹
 window.onmousemove = function(e){
   
   // mousePos.x = ((stageWidth/2) - e.offsetX) * -1;   e.clientX
   // mousePos.y = ((stageHeight/2) - e.offsetY) * -1;
   
-  mousePos.x = ((document.body.clientWidth/2) - e.pageX) * -1 + 120;   
-  mousePos.y = ((document.body.clientHeight/2) - e.pageY) * -1 - 160;
+  mousePos.x = ((document.body.clientWidth/2) - e.pageX) * -1 + 20;   
+  mousePos.y = ((document.body.clientHeight/2) - e.pageY) * -1 - 60;
   
   TweenMax.to('#eyeGroup',1,{
     x:((mousePos.x/20) > (eyeMaxX + 20)) ? (eyeMaxX + 20) : mousePos.x/20
   ,
     y:((mousePos.y/26) > eyeMaxY) ? eyeMaxY : mousePos.y/26
   })  
-  
   
   TweenMax.to('#snout',1,{
     x:mousePos.x/30,
@@ -83,8 +83,6 @@ window.onmousemove = function(e){
       x:(mousePos.x/43),
       y:(mousePos.y/46)
     })
-     
-    
 }
 
 

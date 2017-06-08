@@ -1,26 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Bobo.css';
+import {TweenMax} from "gsap";
 
 class Bobo extends React.Component {
   componentDidMount() {
-     var str = 'Hello Hello Hello Hello Hello Hello Hello Hello ';
-     var i = 0;
-
+     let str = 'Bonjour,  Come an\' in, my dear friend.';
+     let i = 0;
+    let _this = this;
+    function textTyping(){
       if(true) {
-        this.timer = setInterval(
+        _this.timer = setInterval(
           () => {
             divTyping.innerHTML = str.slice(0, i++) + ' _';
               if (i > str.length) {
                 divTyping.innerHTML = str;
-                clearInterval(this.timer);
-                this.timer = undefined;
+                clearInterval(_this.timer);
+                _this.timer = undefined;
               }  
             },
             20
         );
       }
-
+    }
+    setTimeout(textTyping, 1400);
+  }
+  componentWillUnmount() {
+    // 如果存在this.timer，则使用clearTimeout清空。
+    // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
+    this.timer && clearTimeout(this.timer);
   }
   
   render() {

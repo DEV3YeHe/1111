@@ -16,7 +16,8 @@ class TalkBear extends React.Component {
     let select = function(s) {
       return document.querySelector(s);
     },
-      bearSit = select('#bearSit')
+      bearSit = select('#bearSit'),
+      boboSit = select('#boboSit')
 
       // console.log("haha333")
 
@@ -26,17 +27,21 @@ class TalkBear extends React.Component {
       })
 
       TweenMax.to([bearSit],0.3,{
-      scale:1.2
-      }).delay(1)
-      // TweenMax.to([bearSit],0.15,{
-      // scale:0.8
-      // })
-      // TweenMax.to([bearSit],0.1,{
-      // scale:1
-      // })
+      scale:1
+      }).delay(0.6)
+    }
+
+    function startbo(){
+      TweenMax.set([boboSit], {
+        scaleX:0, left:'38px',
+      })
+
+      TweenMax.to([boboSit],0.3,{
+      scaleX:1, left:'76px',
+      }).delay(1.6)
     }
   startb();
-
+  startbo();
   }
   
   render() {
@@ -49,7 +54,7 @@ class TalkBear extends React.Component {
             <Bear />
           </div>
 
-          <div className={styles.boboSit}>          
+          <div id="boboSit" className={styles.boboSit}>          
             <Bobo />
           </div>
 

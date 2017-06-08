@@ -2,12 +2,14 @@ import React from 'react';
 import { connect } from 'dva';
 import styles from './Dashboard.css';
 import Bear from '../components/Bear';
+import Rating from '../components/Rating';
 
 function Dashboard() {
   return (
     <div className={styles.normal}>
 	    
-      目前只有 login 的登录验证和跳转，剩下的还没做
+		<Rating/>
+
     </div>
   );
 }

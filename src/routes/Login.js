@@ -5,7 +5,7 @@ import styles from './Login.css';
 import PropTypes from 'prop-types';
 import QueueAnim from 'rc-queue-anim';
 
-import { Input, Button, Form, Spin } from 'antd';
+import { Input, Button, Form, Spin, Tooltip } from 'antd';
 
 import Particular from '../components/Particular';
 import TalkBear from '../components/TalkBear';
@@ -81,7 +81,10 @@ const Login = ({
 				<TalkBear />
 				
 				<div className={styles.formGroup}>
-					<FormItem hasFeedback style={{marginTop:'26px'}} >
+					<p style={{marginTop:'12px',marginBottom:'4px',marginLeft:'11%'}}>
+						username
+					</p>
+					<FormItem hasFeedback style={{width: '78%',marginLeft:'11%'}} >
 					{getFieldDecorator('username', {
             			rules: [
               				{
@@ -89,10 +92,13 @@ const Login = ({
               				},
             			],
           			})(
-		    		<Input style={{marginTop:'0px'}} size="large" onPressEnter={handleOk} placeholder="Enter Username" />
+		    		<Input size="default" onPressEnter={handleOk} placeholder=" " />
 		    		)}</FormItem>
-
-					<FormItem hasFeedback>
+					
+					<p style={{marginTop:'-10px',marginBottom:'4px',marginLeft:'11%'}}>
+						password
+					</p>
+					<FormItem hasFeedback style={{marginTop:'0px',width: '78%',marginLeft:'11%'}}>
       				{getFieldDecorator('password', {
         				rules: [
           					{
@@ -100,16 +106,24 @@ const Login = ({
           					},
         				],
       				})(
-		    		<Input style={{marginTop:'0px'}} size="large" type="password" onPressEnter={handleOk} placeholder="Enter Password" />
+		    		<Input size="default" type="password" onPressEnter={handleOk} placeholder=" " />
 		    		)}</FormItem>
 
-		    		<Button style={{marginTop:'0px',boxShadow:'0 0 20px rgba(90, 0, 10, 0.28)'}} size="large" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
+					<div className={styles.row}>
+						<Button style={{marginTop:'0px',width: '22%',marginLeft:'11%',boxShadow:'0 0 10px rgba(190, 100, 110, 0.28)'}} size="default" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
+						<Tooltip title="On Building..." trigger="click">
+						<svg style = {{width: '24px',height: '24px',marginLeft:'36%'}}>
+					  		<use xlinkHref="#icon-github1" fill= "#999"></use>
+						</svg>
+						</Tooltip>
+					</div>
+		    		
 				
 
 		    		<hr style={{height:'1px',border:'none',borderTop:'1px dashed #eee',marginTop:'25px'}} />
 		    		<div className={styles.row}>
-		    			<p style={{marginTop:'12px',marginLeft:'16px',color:'#eee'}}>Username: guest</p>
-		    			<p style={{marginTop:'12px',marginLeft:'25px',color:'#eee'}}>Password: guest</p>
+		    			<p style={{marginTop:'12px',width:'50%',textAlign:'center',color:'#eee'}}>Username: guest</p>
+		    			<p style={{marginTop:'12px',width:'50%',textAlign:'center',color:'#eee'}}>Password: guest</p>
 		    		</div>
 				</div>
 			</div>

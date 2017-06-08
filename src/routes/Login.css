@@ -101,6 +101,7 @@
 	display: flex;
 	-webkit-flex-direction: row;/* Safari */
 	flex-direction: row;
+	align-items: center;
 }
 .middle{
 	// display: -webkit-flex;/* Safari */
