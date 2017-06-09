@@ -1,8 +1,8 @@
 {
   "theme": {
     "primary-color": "#F88A4F",
-    "border-radius-base": "12px",
-    "link-color": "#928CCA",
+    "border-radius-base": "8px",
+    "link-color": "#ccc",
     "font-size-base": "12px",
     "line-height-base": "1.4"
   },

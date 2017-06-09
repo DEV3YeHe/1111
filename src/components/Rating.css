@@ -1,12 +1,12 @@
 .rateWin {
 	width: 320px;
-	height: 380px;
+	height: 180px;
 	position: absolute;
 	top:50%;
 	left:50%;
 	margin: -190px 0 0 -160px;
 	background-color: #fff;
-	box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+	box-shadow: 0 0 36px rgba(0, 0, 0, 0.12);
 	border-radius:5px;
 
 }
@@ -55,7 +55,7 @@
 }
 .sparkSvg {
 	width: 52px;
-	height: 42px;
+	height: 48px;
 	position: relative;
 	display: inline-block;
 	// padding: 0 11px 0 11px;
@@ -63,9 +63,40 @@
 
 
 .iconWrapper svg path{
-    stroke: #FDDD9B;
-    stroke-width: 160px;
+    stroke: #FF5500;
+    stroke-width: 100px;
     stroke-linecap: round;
     // fill: transparent;
     opacity: 0;
+}
+
+.ipt {
+	position:relative;
+	display: fix;
+	-webkit-flex-direction: column;/* Safari */
+	flex-direction: column;
+	// -webkit-justify-content: space-around; /* Safari */
+ // 	justify-content: space-around;
+ 	margin:30px 30px 0 30px;
+ 	// opacity:0;
+}
+.ipt1 {
+	position:relative;
+	display: fix;
+	-webkit-flex-direction: row;/* Safari */
+	flex-direction: row;
+	-webkit-justify-content: space-between; /* Safari */
+ 	justify-content: space-between;
+ 	// margin:30px 30px 0 30px;
+ 	// opacity:0;
+}
+
+.cover {
+	width: 320px;
+	height: 180px;
+	position: absolute;
+	margin:0 0 0 -30px;
+	top:0%;
+	background-color: white;
+	z-index: 100;
 }
