@@ -6,9 +6,10 @@ import { Button, Input } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 
 
-
 class Rating extends React.Component {
+
   componentDidMount() {
+
     let select = function(s) {
     return document.querySelector(s);
   },
@@ -25,8 +26,8 @@ class Rating extends React.Component {
   s13 = select('#s13'),
   s14 = select('#s14'),
   s15 = select('#s15'),
-  ipt = select('#ipt'),
-  ipt1 = select('#ipt1')
+  ipt = select('#ipt')
+
 //——飞入！！！！
   for (let i = 0; i <= list_obj.length; i++) {
     
@@ -105,34 +106,34 @@ class Rating extends React.Component {
       .to([list_obj[h]], 0.07, { fill:"#FF5500"})
       .to([list_obj[h]], 0.8, { scale:1.3,rotation:"288deg", fill:"#FDDD9B",ease:"Circ.easeOut"});
 
-            if(c){
-                c=0;
-                for (let j = 0; j < h; j++)  {
-                    TweenMax.to(list_obj[j], 0, { scale:1.3, fill:"#FDDD9B"})
-                }
+        if(c){
+            c=0;
+            for (let j = 0; j < h; j++)  {
+                TweenMax.to(list_obj[j], 0, { scale:1.3, fill:"#FDDD9B"})
+            }
 
-                for (let i = 0; i <= 4; i++) {
-                  if(list_obj[i]){
-                      list_obj[i].removeEventListener('mouseover', overstar,true)
-                      list_obj[i].removeEventListener('mouseout', outstar,true)
-                  }
-                }
-            }else{
-              for (let i = 0; i <= 4; i++) {
-                if(list_obj[i]){
-                  TweenMax.to(list_obj[i], 0, { scale:1, fill:"#eee"})
-                }
-              }
-              for (let i = 0; i <= h; i++) {
-                if(list_obj[i]){
-                  TweenMax.to(list_obj[i], 0, { scale:1.3, fill:"#FDDD9B"})
-                }
+            for (let i = 0; i <= 4; i++) {
+              if(list_obj[i]){
+                  list_obj[i].removeEventListener('mouseover', overstar,true)
+                  list_obj[i].removeEventListener('mouseout', outstar,true)
               }
             }
+        }else{
+          for (let i = 0; i <= 4; i++) {
+            if(list_obj[i]){
+              TweenMax.to(list_obj[i], 0, { scale:1, fill:"#eee"})
+            }
+          }
+          for (let i = 0; i <= h; i++) {
+            if(list_obj[i]){
+              TweenMax.to(list_obj[i], 0, { scale:1.3, fill:"#FDDD9B"})
+            }
+          }
+        }
       }
     }
   const overactiont = (e) =>{               //循环解除事件绑定#FF5500
-
+    sta();
     e.preventDefault();
     let h = 4;
 
@@ -155,101 +156,55 @@ class Rating extends React.Component {
       .to([list_obj[h]], 0.07, { fill:"#FF5500"})
       .to([list_obj[h]], 0.8, { scale:1.3,rotation:"288deg", fill:"#FDDD9B",ease:"Circ.easeOut"});
 
-            if(c){
-                c=0;
-                for (let j = 0; j < h; j++)  {
-                    TweenMax.to(list_obj[j], 0, { scale:1.3, fill:"#FDDD9B"})
-                }
+        if(c){
+            c=0;
+            for (let j = 0; j < h; j++)  {
+                TweenMax.to(list_obj[j], 0, { scale:1.3, fill:"#FDDD9B"})
+            }
 
-                for (let i = 0; i <= 4; i++) {
-                  if(list_obj[i]){
-                      list_obj[i].removeEventListener('mouseover', overstar,true)
-                      list_obj[i].removeEventListener('mouseout', outstar,true)
-                  }
-                }
-            }else{
-              for (let i = 0; i <= 4; i++) {
-                if(list_obj[i]){
-                  TweenMax.to(list_obj[i], 0, { scale:1, fill:"#eee"})
-                }
-              }
-              for (let i = 0; i <= h; i++) {
-                if(list_obj[i]){
-                  TweenMax.to(list_obj[i], 0, { scale:1.3, fill:"#FDDD9B"})
-                }
+            for (let i = 0; i <= 4; i++) {
+              if(list_obj[i]){
+                  list_obj[i].removeEventListener('mouseover', overstar,true)
+                  list_obj[i].removeEventListener('mouseout', outstar,true)
               }
             }
+        }else{
+          for (let i = 0; i <= 4; i++) {
+            if(list_obj[i]){
+              TweenMax.to(list_obj[i], 0, { scale:1, fill:"#eee"})
+            }
+          }
+          for (let i = 0; i <= h; i++) {
+            if(list_obj[i]){
+              TweenMax.to(list_obj[i], 0, { scale:1.3, fill:"#FDDD9B"})
+            }
+          }
+        }
       }
     }
-  for (let i = 0; i < list_obj.length; i++) {
-    if(list_obj[i]){
-      list_obj[i].addEventListener('mouseover', overstar,true)
-      list_obj[i].addEventListener('mouseout', outstar,true)
-      list_obj[i].addEventListener('click', overaction,true)
-      list_obj[i].addEventListener('touchend', overactiont,true)
-// TweenMax.to(list_obj[4], 0, { scale:1.3, fill:"#000"}).delay(6) 
-      // c=1
+    for (let i = 0; i < list_obj.length; i++) {
+      if(list_obj[i]){
+        list_obj[i].addEventListener('mouseover', overstar,true)
+        list_obj[i].addEventListener('mouseout', outstar,true)
+        list_obj[i].addEventListener('click', overaction,true)
+        list_obj[i].addEventListener('touchend', overactiont,true)
+      }
+    }
+
+    function sta(){
+      let st6 = new TimelineMax();                   
+      st6.to(rateWin, 0.3,{ height: '380px',marginTop: '-190px',ease:"Circ.easeOut" })
+      .to(ipt, 0.8, { opacity:1 })
     }
   }
-//——搞 hover 效果 + 点击效果
-//——————————————————————————————————————————————————
 
-//第一版—————————————————————————————无法解除事件绑定———————————
-  // let j =1;
-
-  // const bindaction = () =>{
-  //   for (let i = 0; i < list_obj.length; i++) {
-  //     // arr[i]=list_obj[i]; 
-  //     let list_onStar = list_obj.slice(0, j++)
-  //     // console.log(list_onStar)
-  //     const overstar = (e) => {
-  //         if(e.target.tagName == "use"){
-  //           TweenMax.to(list_onStar, 0.1, { scale:1.3, fill:"#FDDD9B"});
-  //           console.log(e+"in")
-  //           // e.stopPropagation();
-  //         }
-  //       }
-  //     const outstar = (e) => {
-  //         if(e.target.tagName == "use"){
-  //           TweenMax.to(list_onStar, 0.1, { scale:1, fill:"#eee"});
-  //           console.log(e+"out")
-  //           // e.stopPropagation();
-  //         }
-  //       }
-
-  //     if(list_obj[i]){
-  //       list_obj[i].addEventListener('mouseover', overstar,true);
-  //       console.log(list_obj[i])
-  //       list_obj[i].addEventListener('mouseout', outstar,true);
-  //       // list_obj[i].addEventListener('mousedown', rmstar,true);
-  //     }
-  //   }
-  // }
-  // bindaction();
-//第一版————————————————————————————————————————
-  // TweenMax.set(ipt, {opacity:0})
-  // TweenMax.set(ipt1, {opacity:0})
-  function sta(){
-    console.log("123")
-    TweenMax.to(rateWin, 1.4, { height: '380px' }).delay(1.5)
-    TweenMax.to(rateWin, 1, { height: '380px' })
-  }
-  
-  // TweenMax.from(ipt, 2, { opacity:0 }).delay(4)
-  // TweenMax.from(ipt1, 2, { opacity:0 }).delay(3)
-  }
-
-  componentWillUnmount() {
-
-  }
   
   render() {
-
 
     return (
       <div id="rateWin" className={styles.rateWin}>
           <div>
-            <p style={{color:'rgba(0, 0, 0, 0.68)',margin:'30px 0 30px 0',fontSize:'1.2em',fontWeight: '400px',width:'100%',textAlign:'center'}}>请对服务做出评价哦~</p>
+            <p style={{color:'rgba(0, 0, 0, 0.68)',margin:'30px 0 30px 0',fontSize:'1.2em',fontWeight: '400px',width:'100%',textAlign:'center'}}>Please Comment On the Service</p>
           </div>
 
             <div className={styles.sparks}>
@@ -310,31 +265,17 @@ class Rating extends React.Component {
               </div>
 
           </div>
+          <div className={styles.ipt} id='ipt' style={{opacity:0}} key='1'>
 
-          <QueueAnim className={styles.normal} animConfig={[
-              { opacity: [1, 0], translateY: [0, 90] },
-              { opacity: [1, 0], translateY: [0, -90] }
-            ]} delay={1160} duration={700}>
-            {true ? [ 
-
-          <div className={styles.ipt} key='1'>
-            {/* <div className={styles.cover} id='cover'></div> */}
-            
-
-            <Input id='ipt' type="textarea" autosize={{ minRows: 5, maxRows: 5 }}></Input>
-
-          
-            <Button id='ipt1' style={{marginTop:'35px',width: '100%'}} size="large" type="primary" >
+            <Input type="textarea" autosize={{ minRows: 5, maxRows: 5 }}></Input>
+            <Button style={{marginTop:'35px',width: '100%'}} size="large" type="primary" >
             Submit</Button>
             
 
           </div>
 
-            ]: null}
-          </QueueAnim>
-          
-          
       </div>
+
     )
   }
 }

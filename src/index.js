@@ -6,6 +6,8 @@ const app = dva();
 
 app.model(require("./models/login"));
 
+app.model(require("./models/dashboard"));
+
 // 2. Plugins
 // app.use({});
 

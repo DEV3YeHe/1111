@@ -45,11 +45,11 @@ export default {
 
       // const jump = (data)=>{
         if (data) {
-          yield call(delay, 700)
+          yield call(delay, 400)
           yield put({ type: 'hideLoginLoading' })
           yield call(delay, 800)
           yield put({ type: 'loadover' })
-          yield call(delay, 2000)
+          yield call(delay, 800)
           yield put(routerRedux.push('/dashboard'))
           
         } else {
@@ -62,6 +62,14 @@ export default {
 
   subscriptions: {
   	setup ({ dispatch, history }) {
+      history.listen(location => {
+        if (location.pathname === '/login') {
+          dispatch({
+            type: 'load',
+            show: true,
+          })
+        }
+      })
       history.listen(location => {
         if (location.pathname === '/') {
           dispatch({
