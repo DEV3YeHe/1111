@@ -193,7 +193,7 @@ class Rating extends React.Component {
 
     function sta(){
       let st6 = new TimelineMax();                   
-      st6.to(rateWin, 0.3,{ height: '380px',marginTop: '-190px',ease:"Circ.easeOut" })
+      st6.to(rateWin, 0.3,{ height: '380px',ease:"Circ.easeOut" })
       .to(ipt, 0.8, { opacity:1 })
     }
   }

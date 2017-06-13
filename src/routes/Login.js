@@ -39,7 +39,7 @@ const Login = ({
 	// const {show} = login;
 
   return (
-    <div className={styles.normal}>
+    <div className={styles.bg}>
     	
 {/* ↓ 背景粒子 ↓ */}
 		<div className={styles.bg}> 
@@ -57,7 +57,7 @@ const Login = ({
     	<div className={styles.winContainer} key='1'>
 {/* 一半渐变 + 粒子 radialGradient rgba(120, 100, 160, 0.88)*/}
 
-			<div className={styles.left1}>
+			<div className="left1">
 {/* 里面内容最外层是 position: absolute; 的话，route里必须先包一个div*/}
 				
 					<svg style = {{display:'block',width: '80px',height: '80px',margin:'40px 0 0 90px'}}>
@@ -131,6 +131,7 @@ const Login = ({
     	</div>
     	]: null}
         </QueueAnim>
+
 {/* ↓ 底部版权声明 ↓ */}
 		<div>
 			<p style={{color:'rgba(0, 0, 0, 0.68)',marginTop:'50',position:'fixed',bottom:'18',width:'100%',textAlign:'center'}}>

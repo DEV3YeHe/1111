@@ -1,5 +1,35 @@
 
 .normal {
+	position: relative;
+	bottom: 0;
 	height:100%;
+	// background-color: #fff;
+}
+.layout {
+	height:100%;
+	// background-color: #fff;
 }
 
+:global(.ant-layout-sider-collapsed .anticon) {
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+:global(.ant-layout-sider-collapsed .nav-text ){
+  display: none;
+}
+
+:global(.ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after) {
+  display: none;
+
+}
+
+:global(.ant-layout-sider-collapsed .nav-big){
+	font-size: 16px;
+}
+
+:global(.ant-layout-sider-collapsed .nav-big2){
+	width: 20px;
+	height: 20px;
+	margin:18px 0 0 20px;
+}
