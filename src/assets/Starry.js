@@ -5,7 +5,7 @@ function Starry(cx,ctx){
   this.mousePos = [0, 0];
   this.easingFactor = 16;    //跟随滞后
   this.backgroundColor = '#fff';
-  this.dotColor = '#FE9F7E';                  //'#'+Math.floor(Math.random()*16777215).toString(16)     =>  随机色
+  this.dotColor = '#47C6CC';                  //'#'+Math.floor(Math.random()*16777215).toString(16)     =>  随机色
   this.lineColor = '#F18A45';
   this.dots = [];//点
   this.lines = [];//线
@@ -86,7 +86,7 @@ Starry.prototype = {
   render:function(){
     var _this = this;
     this.ctx.clearRect(0,0,this.cx.width,this.cx.height);//清除
-    this.ctx.globalAlpha = 0.2;
+    this.ctx.globalAlpha = 0.12;
     this.ctx.fillStyle = this.backgroundColor;
     this.ctx.fillRect(0,0,this.cx.width,this.cx.height);
     this.ctx.fillStyle = this.dotColor;
@@ -102,7 +102,7 @@ Starry.prototype = {
       if( l > maxl) return;
       _this.ctx.strokeStyle = _this.lineColor;
       _this.ctx.lineWidth = 0;   //线条粗细
-      _this.ctx.globalAlpha = 0.2;
+      _this.ctx.globalAlpha = 0.12;
       _this.ctx.beginPath();
       _this.ctx.moveTo(line.from.x,line.from.y);
       _this.ctx.lineTo(line.to.x,line.to.y);

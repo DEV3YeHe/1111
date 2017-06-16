@@ -130,19 +130,21 @@ window.onmousemove({offsetX:300, offsetY:60 })
     return (
       <div className="bearContainer" styles={{width: '100%',height: '100%',position: 'absolute',overflow: 'hidden'}}>
         <svg className="dogSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+
           
           <defs>
             <clipPath id="mainMask">
-              <circle id="bg" cx="200" cy="200" r="160" fill="#F88A4F"/>
+              <circle id="bg" cx="200" cy="200" r="160" fill="#C6C92E"/>
+
             </clipPath>
           </defs>
   
           <use xlinkHref="#bg"/>
         
           <g id="dogGroup">
-            <rect id="earL" x="100" y="100" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
-            <rect id="earR" x="245" y="100" width="51" height="57" rx="25" ry="25" fill="#8E694F"/>
-            <rect id="head" x="90" y="105" width="220" height="300" rx="96" ry="110" fill="#9B7D64"/>
+            <rect id="earL" x="100" y="100" width="51" height="57" rx="25" ry="25" fill="#B18B6A"/>
+            <rect id="earR" x="245" y="100" width="51" height="57" rx="25" ry="25" fill="#B18B6A"/>
+            <rect id="head" x="90" y="105" width="220" height="300" rx="96" ry="110" fill="#BE9470"/>
             <rect id="snout" x="139" y="194" width="121" height="84.98" rx="42" ry="42" fill="#F1F4E4"/>
 
             <g id="nose" >

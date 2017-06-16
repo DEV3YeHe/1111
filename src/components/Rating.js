@@ -204,7 +204,7 @@ class Rating extends React.Component {
     return (
       <div id="rateWin" className={styles.rateWin}>
           <div>
-            <p style={{color:'rgba(0, 0, 0, 0.68)',margin:'30px 0 30px 0',fontSize:'1.2em',fontWeight: '400px',width:'100%',textAlign:'center'}}>Please Comment On the Service</p>
+            <p style={{color:'rgba(0, 0, 0, 0.68)',margin:'50px 0 30px 0',fontSize:'1.2em',fontWeight: '400px',width:'100%',textAlign:'center'}}>Please Comment On the Service</p>
           </div>
 
             <div className={styles.sparks}>
@@ -268,8 +268,8 @@ class Rating extends React.Component {
           <div className={styles.ipt} id='ipt' style={{opacity:0}} key='1'>
 
             <Input type="textarea" autosize={{ minRows: 5, maxRows: 5 }}></Input>
-            <Button style={{marginTop:'35px',width: '100%'}} size="large" type="primary" >
-            Submit</Button>
+            <Button style={{marginTop:'35px',width: '100%'}} size="large" type="dashed" >
+            目前只有这么多了</Button>
             
 
           </div>

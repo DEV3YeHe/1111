@@ -17,7 +17,7 @@
 	// top:50%;
 	// left:50%;
 	// margin: -190px 0 0 -320px;
-	box-shadow: 0 0 20px rgba(100, 80, 60, 0.26);
+	box-shadow: 0 0 20px rgba(100, 180, 200, 0.36);
 	// display: -webkit-flex;/* Safari */
 	display: flex;
 	-webkit-flex-wrap: wrap;/* Safari */
@@ -62,7 +62,7 @@
 	width: 260px;
     height: 380px;
     overflow: visible;
-    background-color: #F77D55;
+    background-color: #62B8EF;
  //    display: flex;
  //    -webkit-flex-direction: column;
 	// flex-direction: column;

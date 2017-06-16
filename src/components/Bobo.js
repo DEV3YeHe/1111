@@ -5,7 +5,7 @@ import {TweenMax} from "gsap";
 
 class Bobo extends React.Component {
   componentDidMount() {
-     let str = 'Bonjour,  Come an\' in, my dear friend.';
+     let str = 'Bonjour,  Come an\'  in, my dear friend.';
      let i = 0;
     let _this = this;
     function textTyping(){
@@ -23,7 +23,7 @@ class Bobo extends React.Component {
         );
       }
     }
-    setTimeout(textTyping, 1400);
+    setTimeout(textTyping, 2000);
   }
   componentWillUnmount() {
     // 如果存在this.timer，则使用clearTimeout清空。
@@ -37,7 +37,7 @@ class Bobo extends React.Component {
       <div>
           
             <svg id='svgBobo' className={styles.svgBobo} >
-              <use xlinkHref="#icon-b" fill= "#00C6CC"></use>
+              <use xlinkHref="#icon-b" fill= "#00D2D8"></use>
             </svg>
 
             <p id='divTyping' className={styles.divTyping}>

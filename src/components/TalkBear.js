@@ -33,12 +33,12 @@ class TalkBear extends React.Component {
 
     function startbo(){
       TweenMax.set([boboSit], {
-        scaleX:0, left:'38px',
+        scaleY:0,
       })
 
       TweenMax.to([boboSit],0.3,{
-      scaleX:1, left:'76px',
-      }).delay(1.6)
+      scaleY:1,
+      }).delay(1.2)
     }
   startb();
   startbo();
@@ -55,7 +55,7 @@ class TalkBear extends React.Component {
           </div>
 
           <div id="boboSit" className={styles.boboSit}>          
-            <Bobo />
+            <Bobo/>
           </div>
 
       </div>

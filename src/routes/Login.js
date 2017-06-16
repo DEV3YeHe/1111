@@ -59,7 +59,6 @@ const Login = ({
 
 			<div className="left1">
 {/* 里面内容最外层是 position: absolute; 的话，route里必须先包一个div*/}
-				
 					<svg style = {{display:'block',width: '80px',height: '80px',margin:'40px 0 0 90px'}}>
 					  <use xlinkHref="#icon-Forme2" fill= "#fff"></use>
 					</svg>
@@ -69,10 +68,6 @@ const Login = ({
 					<svg style = {{width: '340px',height: '280px',marginLeft:'-50px',marginTop:'-15px',bottom:'0px'}}>
 					  <use xlinkHref="#icon-changjing"></use>
 					</svg>
-
-
-				
-				
 			</div>
 
 {/* 另一半表单*/}
@@ -82,7 +77,7 @@ const Login = ({
 				
 				<div className={styles.formGroup}>
 					<p style={{marginTop:'12px',marginBottom:'4px',marginLeft:'11%'}}>
-						username
+						Username
 					</p>
 					<FormItem hasFeedback style={{width: '78%',marginLeft:'11%'}} >
 					{getFieldDecorator('username', {
@@ -96,7 +91,7 @@ const Login = ({
 		    		)}</FormItem>
 					
 					<p style={{marginTop:'-10px',marginBottom:'4px',marginLeft:'11%'}}>
-						password
+						Password
 					</p>
 					<FormItem hasFeedback style={{marginTop:'0px',width: '78%',marginLeft:'11%'}}>
       				{getFieldDecorator('password', {
@@ -110,10 +105,10 @@ const Login = ({
 		    		)}</FormItem>
 
 					<div className={styles.row}>
-						<Button style={{marginTop:'0px',width: '22%',marginLeft:'11%',boxShadow:'0 0 10px rgba(190, 100, 110, 0.28)'}} size="default" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
+						<Button style={{marginTop:'0px',width: '22%',marginLeft:'11%',boxShadow:'0 0 22px rgba(100, 180, 200, 0.36)'}} size="default" type="primary" onClick={handleOk} loading={loginLoading} >Sign in</Button>
 						<Tooltip title="On Building..." trigger="click">
-						<svg style = {{width: '24px',height: '24px',marginLeft:'36%'}}>
-					  		<use xlinkHref="#icon-github1" fill= "#999"></use>
+						<svg style = {{width: '24px',height: '24px',marginLeft:'36%',marginTop:'4px'}}>
+					  		<use xlinkHref="#icon-github1" fill= "#ccc"></use>
 						</svg>
 						</Tooltip>
 					</div>
@@ -122,8 +117,8 @@ const Login = ({
 
 		    		<hr style={{height:'1px',border:'none',borderTop:'1px dashed #eee',marginTop:'25px'}} />
 		    		<div className={styles.row}>
-		    			<p style={{marginTop:'12px',width:'50%',textAlign:'center',color:'#eee'}}>Username: guest</p>
-		    			<p style={{marginTop:'12px',width:'50%',textAlign:'center',color:'#eee'}}>Password: guest</p>
+		    			<p style={{marginTop:'12px',width:'50%',textAlign:'center',color:'#999'}}>Username: guest</p>
+		    			<p style={{marginTop:'12px',width:'50%',textAlign:'center',color:'#999'}}>Password: guest</p>
 		    		</div>
 				</div>
 			</div>
@@ -135,7 +130,7 @@ const Login = ({
 {/* ↓ 底部版权声明 ↓ */}
 		<div>
 			<p style={{color:'rgba(0, 0, 0, 0.68)',marginTop:'50',position:'fixed',bottom:'18',width:'100%',textAlign:'center'}}>
-			@ 2017 David's Re-ment, hope U like here~!<a href="http://www.houseside.cn" style={{marginLeft:'16', fontWeight:'bloder'}}>&gt; Visit Home &lt;</a></p>
+			@ 2017 David's Re-ment, hope U like here~!<a href="http://www.houseside.cn" style={{color:'#47C6CC',marginLeft:'16', fontWeight:'bloder'}}>&gt; Visit Home &lt;</a></p>
 		</div>
     </div>
   );
