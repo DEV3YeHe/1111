@@ -5,7 +5,7 @@ import {TweenMax} from "gsap";
 
 class Bobo extends React.Component {
   componentDidMount() {
-     let str = 'Bonjour,  Come an\'  in, my dear friend.';
+     let str = 'Bonjour~  Come and in, my dear friend.';
      let i = 0;
     let _this = this;
     function textTyping(){
@@ -37,7 +37,7 @@ class Bobo extends React.Component {
       <div>
           
             <svg id='svgBobo' className={styles.svgBobo} >
-              <use xlinkHref="#icon-b" fill= "#00D2D8"></use>
+              <use xlinkHref="#icon-b" fill= "#58D6DB"></use>
             </svg>
 
             <p id='divTyping' className={styles.divTyping}>

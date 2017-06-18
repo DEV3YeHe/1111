@@ -65,7 +65,7 @@ const Login = ({
 					<svg style = {{width: '80px',height: '40px',margin:'0 0 0 90px'}}>
 					  <use xlinkHref="#icon-rement" fill= "#fff"></use>
 					</svg>
-					<svg style = {{width: '340px',height: '280px',marginLeft:'-50px',marginTop:'-15px',bottom:'0px'}}>
+					<svg style = {{width: '340px',height: '280px',marginLeft:'-54px',marginTop:'14px'}}>
 					  <use xlinkHref="#icon-changjing"></use>
 					</svg>
 			</div>
@@ -130,7 +130,7 @@ const Login = ({
 {/* ↓ 底部版权声明 ↓ */}
 		<div>
 			<p style={{color:'rgba(0, 0, 0, 0.68)',marginTop:'50',position:'fixed',bottom:'18',width:'100%',textAlign:'center'}}>
-			@ 2017 David's Re-ment, hope U like here~!<a href="http://www.houseside.cn" style={{color:'#47C6CC',marginLeft:'16', fontWeight:'bloder'}}>&gt; Visit Home &lt;</a></p>
+			@ 2017 David's Re-ment, hope U like here~!<a href="http://www.houseside.cn" style={{color:'#47C6CC',marginLeft:'16'}}>&gt; Visit Home &lt;</a></p>
 		</div>
     </div>
   );

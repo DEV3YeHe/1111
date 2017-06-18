@@ -1,0 +1,10 @@
+.normal {
+	position: relative;
+	bottom: 0;
+	height:100%;
+	// background-color: #fff;
+}
+.layout {
+	height:100%;
+	// background-color: #fff;
+}
